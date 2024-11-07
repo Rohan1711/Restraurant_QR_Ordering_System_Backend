@@ -2,28 +2,38 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
-    name: { 
-        type: String, 
-        required: true 
+    userName: {
+      type: String,
+      required: true,
     },
-    restaurantId: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Restaurant', 
-        required: true 
+    restaurant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Restaurant",
+      required: true,
     },
-    role: { 
-        type: String, 
-        enum: ['owner', 'staff', 'chef'], 
-        required: true 
+    role: {
+      type: String,
+      enum: ["admin", "staff", "chef"],
+      default: "staff",
     },
-    email: { 
-        type: String, 
-        unique: true, 
-        required: true 
+    mobileNumber: {
+      type: Number,
+      unique: true,
+      required: true,
     },
-    password: { 
-        type: String, 
-        required: true },
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

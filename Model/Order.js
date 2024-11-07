@@ -12,11 +12,11 @@ const OrderSchema = new mongoose.Schema(
       ref: "Table",
       required: true,
     },
-    customerId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Customer",
-      required: false,
-    },
+    // customerId: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: "Customer",
+    //   required: false,
+    // },
     items: [
       {
         itemId: {
@@ -33,15 +33,15 @@ const OrderSchema = new mongoose.Schema(
         },
       },
     ],
-    totalAmount: {
-      type: Number,
-      required: true,
-    },
+
+    payment: {},
+
     status: {
       type: String,
       enum: ["Pending", "In Progress", "Completed"],
       default: "Pending",
     },
+
     orderNotes: {
       type: String,
     },
